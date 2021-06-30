@@ -9,12 +9,11 @@
 // address of A[i] where i=2
 // Ma + i * sizeof(int) where Ma is memory address of starting element
 
-// Q.1 removing duplicate from an sorted array space O(1), time O(n)
-// 1.Brute > 2.Better > 3.Optimal
-
 #include <bits/stdc++.h>
 using namespace std;
 
+// Q.1 removing duplicate from an sorted array space O(1), time O(n)
+// 1.Brute > 2.Better > 3.Optimal
 void remove_Brute(int arr[], int n)
 {
     // Method 1: (Using extra space)
@@ -44,7 +43,7 @@ void remove_Brute(int arr[], int n)
         cout << temp[i] << " ";
 }
 
-//Home work  remove duplicate elements from a sorted array without using extra space time o(n)
+//Home work  remove duplicate elements from a sorted array without using no extra space time o(n)
 void remove_better(int arr[], int n)
 {
     //space O(1), time O(n)
@@ -62,12 +61,14 @@ void remove_better(int arr[], int n)
         }
     }
 
-    arr[k] = arr[n - 1]; //temp[k++]
+    arr[k] = arr[n - 1]; // same as methord 1
     k++;
 
     for (int i = 0; i < k; i++)
         cout << arr[i] << " ";
 }
+
+// remove duplicate using set
 
 //Q2 Intersection of two sorted arrays , if duplicate , brute>better>optimal
 
