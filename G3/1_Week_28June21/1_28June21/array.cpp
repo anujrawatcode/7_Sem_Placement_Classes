@@ -42,29 +42,31 @@ int sum(int arr[], int n)
 }
 
 // delete element from array return true if element is deleted and false if not
-bool delete(int arr[], int n, int x)
+
+// Input:  arr[] = {3, 1, 2, 5, 90}, x = 2, size = 5, capacity = 5
+// Output: arr[] = {3, 1, 5, 90, _}, size = 4, capacity = 5
+int deleteElement(int arr[], int n, int x)
 {
-    if (n == 0)
-        return false;
-    for (int i = 0; i < n; i++)
-    {
+    // Search x in array
+    int i;
+    for (i = 0; i < n; i++)
         if (arr[i] == x)
-        {
-            for (int j = i + 1; j < n; j++)
-            {
-                arr[j - 1] = arr[j];
-            }
-            n--;
-            return true;
-        }
+            break;
+
+    // If x found in array
+    if (i < n)
+    {
+        // reduce size of array and move all
+        // elements on space ahead
+        n = n - 1;
+        for (int j = i; j < n; j++)
+            arr[j] = arr[j + 1];
     }
-    return false;
 }
 
 int main()
 {
     int n = 5;
     int arr[] = {1, 2, 3, 4, 5};
-    bool a = delete(arr, n, 3);
-
+    bool a = deleteElement(arr, n, 3);
 }
