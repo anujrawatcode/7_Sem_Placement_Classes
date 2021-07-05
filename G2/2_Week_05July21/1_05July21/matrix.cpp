@@ -96,3 +96,92 @@ using namespace std;
 //         }
 //     }
 // }
+
+// Home work Ques:
+// https://leetcode.com/problems/projection-area-of-3d-shapes
+// https://leetcode.com/problems/surface-area-of-3d-shapes
+// https://leetcode.com/problems/available-captures-for-rook
+
+//  Today's questions:
+// https://leetcode.com/problems/flood-fill
+class Solution
+{
+public:
+    void solve(vector<vector<int>> &image, int sr, int sc, int r, int c, int old, int newColor)
+    {
+
+        if (sr < 0 || sc < 0 || sr >= r || sc >= c || image[sr][sc] == newColor)
+            return;
+        if (image[sr][sc] == old)
+        {
+            image[sr][sc] = newColor;
+            solve(image, sr + 1, sc, r, c, old, newColor);
+            solve(image, sr, sc + 1, r, c, old, newColor);
+            solve(image, sr - 1, sc, r, c, old, newColor);
+            solve(image, sr, sc - 1, r, c, old, newColor);
+        }
+    }
+
+public:
+    vector<vector<int>> floodFill(vector<vector<int>> &image, int sr, int sc, int newColor)
+    {
+        int r = image.size();
+        int c = image[0].size();
+        if (image[sr][sc] == newColor)
+            return image;
+        int old = image[sr][sc];
+
+        solve(image, sr, sc, r, c, old, newColor);
+        return image;
+    }
+};
+
+// https://leetcode.com/problems/toeplitz-matrix
+bool isToeplitzMatrix(vector<vector<int>> &matrix)
+{
+
+    int r = matrix.size();
+    int c = matrix[0].size();
+
+    for (int i = 0; i < r - 1; i++)
+    {
+        for (int j = 0; j < c - 1; j++)
+        {
+            if (matrix[i][j] != matrix[i + 1][j + 1])
+                return false;
+        }
+    }
+    return true;
+}
+
+// https://leetcode.com/problems/flipping-an-image
+vector<vector<int>> flipAndInvertImage(vector<vector<int>> &image)
+{
+    int r = image.size();
+    int c = image[0].size();
+
+    for (int i = 0; i < r; i++)
+    {
+        reverse(image[i].begin(), image[i].end());
+        for (int j = 0; j < c; j++)
+            image[i][j] = (image[i][j] ^ 1);
+    }
+    return image;
+}
+
+// https://leetcode.com/problems/transpose-matrix
+vector<vector<int>> transpose(vector<vector<int>> &matrix)
+{
+    int r = matrix.size();
+    int c = matrix[0].size();
+    vector<vector<int>> vec(c, vector<int>(r));
+
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            vec[j][i] = matrix[i][j];
+        }
+    }
+    return vec;
+}
