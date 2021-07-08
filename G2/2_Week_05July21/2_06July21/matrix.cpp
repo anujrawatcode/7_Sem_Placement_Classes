@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://leetcode.com/problems/lucky-numbers-in-a-matrix/
+// https://leetcode .com/problems/lucky-numbers-in-a-matrix/
 // Q.1 Find special number the matrix ( min in row. max in column )
 // ans 1 number only min in row and max at it.
 
