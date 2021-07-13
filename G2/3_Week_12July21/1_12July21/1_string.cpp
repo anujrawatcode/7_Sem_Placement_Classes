@@ -2,6 +2,48 @@
 using namespace std;
 
 // https://leetcode.com/problems/keyboard-row/
+class Solution0
+{
+
+    bool Contains(string base, string tar)
+    {
+        unordered_set<char> st;
+        for (int i = 0; i < base.length(); i++)
+            st.insert(base[i]);
+        for (int i = 0; i < tar.length(); i++)
+        {
+            if (st.find(tar[i]) == st.end())
+                return false;
+        }
+        return true;
+    }
+
+public:
+    vector<string> findWords(vector<string> &words)
+    {
+        string s1 = "qwertyuiop";
+        string s2 = "asdfghjkl";
+        string s3 = "zxcvbnm";
+
+        vector<string> temp = words;
+        for (int i = 0; i < words.size(); i++)
+        {
+            transform(words[i].begin(), words[i].end(), words[i].begin(), ::tolower);
+        }
+
+        vector<string> ans;
+        for (int i = 0; i < words.size(); i++)
+        {
+            if (Contains(s1, words[i]))
+                ans.push_back(temp[i]);
+            else if (Contains(s2, words[i]))
+                ans.push_back(temp[i]);
+            else if (Contains(s3, words[i]))
+                ans.push_back(temp[i]);
+        }
+        return ans;
+    }
+};
 
 // https://leetcode.com/problems/most-common-word/
 class Solution1
