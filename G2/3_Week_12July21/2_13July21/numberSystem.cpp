@@ -43,4 +43,9 @@ int hammingWeight(uint32_t n)
 }
 
 // given a number n return if it is in power of 2
-
+bool isPowerOfTwo(int n)
+{
+    if (n <= 0)
+        return false;
+    return (n & (n - 1)) == 0;
+}
