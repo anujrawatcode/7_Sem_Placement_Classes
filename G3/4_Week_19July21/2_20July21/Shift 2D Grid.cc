@@ -1,5 +1,5 @@
-
-
+#include<bits/stdc++.h>
+using namesocae std;
 
 
 int main()
@@ -22,3 +22,4 @@ int main()
     
 
     return 0;
+}
