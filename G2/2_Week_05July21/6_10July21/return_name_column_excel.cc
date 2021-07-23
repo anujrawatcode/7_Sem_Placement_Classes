@@ -15,9 +15,9 @@ string ColnotoColName(int n)
 string s="";
 while(n>0)
 {
-    char c='A'+(n-1)%26;
+    char c='A'+(--n)%26;
     s=c+s;
-    n=n(n-1)/26;
+    n/=26;
 }
 return s;
 }
